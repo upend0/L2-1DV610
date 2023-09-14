@@ -16,6 +16,9 @@ export class AllLanguageTranslator {
    * @returns {string} The translated string.
    */
   translateString (stringToTranslate) {
+    // Trim the string and make it lowercase
+    stringToTranslate = stringToTranslate.trim().toLowerCase()
+
     // Check if the string is valid
     this.#checkValidString(stringToTranslate)
 
@@ -41,7 +44,7 @@ export class AllLanguageTranslator {
 
     // Check if the string contains only letters and spaces
     const regex = /^[a-zåäö ]+$/i
-    if (!regex.test(stringToTranslate.toLowerCase())) {
+    if (!regex.test(stringToTranslate)) {
       throw new Error('The string contains invalid characters.')
     }
   }
