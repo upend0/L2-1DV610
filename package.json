@@ -1,0 +1,25 @@
+{
+  "name": "l2-1dv610",
+  "version": "1.0.0",
+  "description": "L2 1dv610",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upend0/L2-1DV610.git"
+  },
+  "author": "Maria Fredriksson <mf223wk@student.lnu.se>",
+  "license": "MIT",
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.7"
+  },
+  "bugs": {
+    "url": "https://github.com/upend0/L2-1DV610/issues"
+  },
+  "homepage": "https://github.com/upend0/L2-1DV610#readme"
+}
