@@ -16,6 +16,9 @@ export class AllLanguageTranslator {
    * @returns {string} The translated string.
    */
   translateString (stringToTranslate) {
+    // Check if the string is valid
+    this.#checkValidString(stringToTranslate)
+
     // Split the input string into words
     const words = stringToTranslate.split(' ')
 
@@ -24,6 +27,23 @@ export class AllLanguageTranslator {
     const translatedString = translatedWords.join(' ').toLocaleLowerCase()
 
     return translatedString
+  }
+
+  /**
+   * Private method to check if the string is valid.
+   *
+   * @param {string} stringToTranslate - The string to translate.
+   */
+  #checkValidString (stringToTranslate) {
+    if (stringToTranslate === '') {
+      throw new Error('The string is empty.')
+    }
+
+    // Check if the string contains only letters and spaces
+    const regex = /^[a-zåäö ]+$/i
+    if (!regex.test(stringToTranslate.toLowerCase())) {
+      throw new Error('The string contains invalid characters.')
+    }
   }
 
   /**
