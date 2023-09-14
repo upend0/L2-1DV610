@@ -14,7 +14,7 @@ try {
   const allLanguageTranslator = new AllLanguageTranslator()
 
   // Translate the string
-  const translatedString = allLanguageTranslator.translateString(stringToTranslate)
+  const translatedString = allLanguageTranslator.translateToAllLanguage(stringToTranslate)
 
   // Print the translated string
   console.log(translatedString)
