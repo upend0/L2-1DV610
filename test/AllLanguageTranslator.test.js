@@ -43,6 +43,41 @@ describe('AllLanguageTranslator', () => {
     expect(result).toEqual(expectedOutput)
   })
 
+  it('should translate a word with all lowercase letters correctly', () => {
+    const input = 'hej'
+    const expectedOutput = 'ejhall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all uppercase letters correctly', () => {
+    const input = 'HEJ'
+    const expectedOutput = 'ejhall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle leading and trailing spaces correctly', () => {
+    const input = '  hej på dig  '
+    const expectedOutput = 'ejhall åpall igdall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle multiple spaces between words correctly', () => {
+    const input = 'hej    på    dig'
+    const expectedOutput = 'ejhall åpall igdall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle mixed case input correctly', () => {
+    const input = 'HeJ pÅ dIg'
+    const expectedOutput = 'ejhall åpall igdall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
   it('should throw an error when the string is empty', () => {
     const argument = ''
     // The test is written in this way because it checks for the expected behavior of the method - behavior verification

@@ -22,8 +22,8 @@ export class AllLanguageTranslator {
     // Check if the string is valid
     this.#checkValidString(stringToTranslate)
 
-    // Split the input string into words
-    const words = stringToTranslate.split(' ')
+    // Replace multiple spaces with a single space and then split into words
+    const words = stringToTranslate.replace(/\s+/g, ' ').split(' ')
 
     // Translate each word and join them back into a sentence
     const translatedWords = words.map(word => this.#translateWordToAllLanguage(word))
