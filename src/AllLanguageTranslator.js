@@ -66,7 +66,7 @@ export class AllLanguageTranslator {
     }
 
     // Check if the string contains only letters and spaces
-    const regex = /^[a-zåäö ]+$/i
+    const regex = /^[a-zåäöéüáàèìòúñ ]+$/i
     if (!regex.test(stringToTranslate)) {
       throw new Error('The string contains invalid characters.')
     }

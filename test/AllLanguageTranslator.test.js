@@ -36,6 +36,13 @@ describe('AllLanguageTranslator', () => {
     expect(result).toEqual(expectedOutput)
   })
 
+  it('should translate a word that contains a special character correctly', () => {
+    const input = 'idé'
+    const expectedOutput = 'idéall'
+    const result = allTranslator.translateToAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
   it('should throw an error when the string is empty', () => {
     const argument = ''
     // The test is written in this way because it checks for the expected behavior of the method - behavior verification
