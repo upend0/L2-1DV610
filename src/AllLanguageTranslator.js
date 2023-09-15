@@ -27,7 +27,7 @@ export class AllLanguageTranslator {
 
     // Translate each word and join them back into a sentence
     const translatedWords = words.map(word => this.#translateWordToAllLanguage(word))
-    const translatedString = translatedWords.join(' ').toLocaleLowerCase()
+    const translatedString = translatedWords.join(' ')
 
     return translatedString
   }
@@ -103,6 +103,7 @@ export class AllLanguageTranslator {
    * @returns {boolean} True if the character is a vowel, otherwise false.
    */
   #isVowel (char) {
-    return ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö'].includes(char.toLowerCase())
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'é', 'ü', 'á', 'à', 'è', 'ì', 'ò', 'ú']
+    return vowels.includes(char.toLowerCase())
   }
 }
