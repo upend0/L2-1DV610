@@ -13,4 +13,14 @@ describe('AllLanguageTranslator', () => {
     const result = allTranslator.translateToAllLanguage(argument)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should throw an error when the string is empty', () => {
+    const argument = ''
+    expect(() => allTranslator.translateToAllLanguage(argument)).toThrow('The string is empty.')
+  })
+
+  it('should throw an error when the string contains invalid characters', () => {
+    const argument = 'hej123!'
+    expect(() => allTranslator.translateToAllLanguage(argument)).toThrow('The string contains invalid characters.')
+  })
 })
