@@ -8,6 +8,7 @@ describe('AllLanguageTranslator', () => {
   })
 
   it('should translate "hej på dig" to "ejhall åpall igdall"', () => {
+    // & Maybe I should change the name of the variable argument and input to stringToTranslate
     const argument = 'hej på dig'
     const expectedOutput = 'ejhall åpall igdall'
     const result = allTranslator.translateToAllLanguage(argument)
@@ -82,6 +83,16 @@ describe('AllLanguageTranslator', () => {
     const argument = ''
     // The test is written in this way because it checks for the expected behavior of the method - behavior verification
     expect(() => allTranslator.translateToAllLanguage(argument)).toThrow('The string is empty.')
+  })
+
+  it('should throw an error when the string exceeds the maximum allowed length', () => {
+    const maxStringLength = 10000
+    // Create a string that exceeds the maximum allowed length
+    const argument = 'a'.repeat(maxStringLength + 1)
+
+    expect(() => allTranslator.translateToAllLanguage(argument, maxStringLength)).toThrow(
+      `The string exceeds the maximum allowed length of ${maxStringLength} characters.`
+    )
   })
 
   it('should throw an error when the string contains invalid characters', () => {
