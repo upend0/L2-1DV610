@@ -16,6 +16,10 @@ export class AllLanguageTranslator {
    * @returns {string} The translated string.
    */
   translateToAllLanguage (stringToTranslate) {
+    // Check the length of the string
+    const maxStringLength = 10000
+    this.#checkStringLength(stringToTranslate, maxStringLength)
+
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
 
@@ -54,6 +58,18 @@ export class AllLanguageTranslator {
 
   //   return translatedString
   // }
+
+  /**
+   * Private method to check the length of the string.
+   *
+   * @param {string} stringToTranslate - The string to translate.
+   * @param {number} maxStringLength - The maximum allowed length of the string.
+   */
+  #checkStringLength (stringToTranslate, maxStringLength) {
+    if (stringToTranslate.length > maxStringLength) {
+      throw new Error(`The string exceeds the maximum allowed length of ${maxStringLength} characters.`)
+    }
+  }
 
   /**
    * Private method to check if the string is valid.
