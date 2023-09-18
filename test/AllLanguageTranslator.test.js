@@ -88,4 +88,17 @@ describe('AllLanguageTranslator', () => {
     const argument = 'hej123!'
     expect(() => allTranslator.translateToAllLanguage(argument)).toThrow('The string contains invalid characters.')
   })
+
+  it('should throw an error for input with potential XSS attack', () => {
+    const inputs = [
+      '<script>alert("XSS Attack");</script>',
+      '"><img src=x onerror=alert("XSS Attack")>',
+      '<img src=x onclick="alert(\'XSS Attack\')">',
+      '<iMg SrC=javascript:alert("XSS Attack")>'
+    ]
+
+    inputs.forEach((input) => {
+      expect(() => allTranslator.translateToAllLanguage(input)).toThrow('The string contains invalid characters.')
+    })
+  })
 })
