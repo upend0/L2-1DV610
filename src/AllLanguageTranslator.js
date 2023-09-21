@@ -5,6 +5,8 @@
  * @version 1.0.0
  */
 
+import { SuperStringFixer } from './SuperStringFixer.js'
+
 /**
  * Represents a translator that translates a string to All Language.
  */
@@ -16,21 +18,11 @@ export class AllLanguageTranslator {
    * @returns {string} The translated string.
    */
   translateToAllLanguage (stringToTranslate) {
-    // Check the length of the string
-    const maxStringLength = 10000
-    this.#checkStringLength(stringToTranslate, maxStringLength)
+    // Check and fix the string
+    stringToTranslate = SuperStringFixer.checkFixString(stringToTranslate)
 
-    // Trim the string and make it lowercase
-    stringToTranslate = stringToTranslate.trim().toLowerCase()
-
-    // Check if the string is empty
-    this.#checkEmptyString(stringToTranslate)
-
-    // Check if the string is valid
-    this.#checkValidString(stringToTranslate)
-
-    // Replace multiple spaces with a single space and then split into words
-    const words = stringToTranslate.replace(/\s+/g, ' ').split(' ')
+    // Split the string into words
+    const words = stringToTranslate.split(' ')
 
     // Translate each word and join them back into a sentence
     const translatedWords = words.map(word => this.#translateWordToAllLanguage(word))
@@ -61,41 +53,6 @@ export class AllLanguageTranslator {
 
   //   return translatedString
   // }
-
-  /**
-   * Private method to check the length of the string.
-   *
-   * @param {string} stringToTranslate - The string to translate.
-   * @param {number} maxStringLength - The maximum allowed length of the string.
-   */
-  #checkStringLength (stringToTranslate, maxStringLength) {
-    if (stringToTranslate.length > maxStringLength) {
-      throw new Error(`The string exceeds the maximum allowed length of ${maxStringLength} characters.`)
-    }
-  }
-
-  /**
-   * Private method to check if the string is empty.
-   *
-   * @param {string} stringToTranslate - The string to translate.
-   */
-  #checkEmptyString (stringToTranslate) {
-    if (stringToTranslate === '') {
-      throw new Error('The string is empty.')
-    }
-  }
-
-  /**
-   * Private method to check if the string contains only letters and spaces.
-   *
-   * @param {string} stringToTranslate - The string to translate.
-   */
-  #checkValidString (stringToTranslate) {
-    const regex = /^[a-zåäöéüáàèìòúñ ]+$/i
-    if (!regex.test(stringToTranslate)) {
-      throw new Error('The string contains invalid characters.')
-    }
-  }
 
   /**
    * Method to translate a single word to All Language.
