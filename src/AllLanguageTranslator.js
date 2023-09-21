@@ -23,6 +23,9 @@ export class AllLanguageTranslator {
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
 
+    // Check if the string is empty
+    this.#checkEmptyString(stringToTranslate)
+
     // Check if the string is valid
     this.#checkValidString(stringToTranslate)
 
@@ -72,16 +75,22 @@ export class AllLanguageTranslator {
   }
 
   /**
-   * Private method to check if the string is valid.
+   * Private method to check if the string is empty.
+   *
+   * @param {string} stringToTranslate - The string to translate.
+   */
+  #checkEmptyString (stringToTranslate) {
+    if (stringToTranslate === '') {
+      throw new Error('The string is empty.')
+    }
+  }
+
+  /**
+   * Private method to check if the string contains only letters and spaces.
    *
    * @param {string} stringToTranslate - The string to translate.
    */
   #checkValidString (stringToTranslate) {
-    if (stringToTranslate === '') {
-      throw new Error('The string is empty.')
-    }
-
-    // Check if the string contains only letters and spaces
     const regex = /^[a-zåäöéüáàèìòúñ ]+$/i
     if (!regex.test(stringToTranslate)) {
       throw new Error('The string contains invalid characters.')
