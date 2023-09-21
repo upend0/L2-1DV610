@@ -19,7 +19,7 @@ export class AllLanguageTranslator {
    */
   translateToAllLanguage (stringToTranslate) {
     // Check and fix the string
-    stringToTranslate = SuperStringFixer.checkFixString(stringToTranslate)
+    stringToTranslate = new SuperStringFixer().checkFixString(stringToTranslate)
 
     // Split the string into words
     const words = stringToTranslate.split(' ')

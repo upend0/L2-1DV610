@@ -34,7 +34,7 @@ export class SuperStringFixer {
     // & Change this name to checkValidCharacters maybe since the method has changed what it does and the check for empty string has been taken out to its own method
 
     // Replace multiple spaces with a single space
-    stringToTranslate.replace(/\s+/g, ' ')
+    stringToTranslate = stringToTranslate.replace(/\s+/g, ' ')
 
     return stringToTranslate
   }
