@@ -41,6 +41,48 @@ export class FigLanguageTranslator {
   }
 
   /**
+   * Public method for translating a string from FigLanguage.
+   *
+   * @param {string} stringToTranslate - The string to translate.
+   * @returns {string} The translated string.
+   */
+  translateFigToSwedish (stringToTranslate) {
+    // Check and fix the string
+    stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
+
+    // Split the string into words
+    const words = stringToTranslate.split(' ')
+    // & Maybe change this to figWords
+
+    let translatedWords = []
+
+    Fortsätt bygga denna for-loop
+
+    // Loop through the words
+    for (let i = 0; i < words.length; i++) {
+      // Check if the word starts with "fi" and the word after ends with "kon"
+      if (words[i].startsWith('fi') && words[i + 1].endsWith('kon')) {
+        // Remove "fi" and "kon" from the first and second word
+        words[i] = words[i].slice(2)
+        words[i + 1] = words[i + 1].slice(0, -3)
+      } else {
+        throw new Error('The string is not in FigLanguage.')
+      }
+
+      // Translate each word and join them back into a sentence
+      translatedWords.push(this.#translateWordFromFigLanguage(words[i]))
+    }
+
+    // // Translate each word and join them back into a sentence
+    // const translatedWords = words.map(word => this.#translateWordFromFigLanguage(word))
+    // // & Maybe change this to swedishWords
+    // const translatedString = translatedWords.join(' ')
+    // // & Maybe change this to swedishString
+
+    return translatedString
+  }
+
+  /**
    * Method to translate a single word to FigLanguage.
    *
    * @param {string} word - The word to translate.
@@ -64,6 +106,10 @@ export class FigLanguageTranslator {
     const translatedWords = `fi${part2} ${part1}kon`
 
     return translatedWords
+  }
+
+  #translateWordFromFigLanguage (word) {
+    
   }
 
   /**
