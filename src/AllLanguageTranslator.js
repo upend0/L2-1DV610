@@ -11,6 +11,15 @@ import { SuperStringFixer } from './SuperStringFixer.js'
  * Represents a translator that translates a string to All Language.
  */
 export class AllLanguageTranslator {
+  #superStringFixer
+
+  /**
+   * Creates an instance of AllLanguageTranslator.
+   */
+  constructor () {
+    this.#superStringFixer = new SuperStringFixer()
+  }
+
   /**
    * Public method for translating a string to All Language.
    *
@@ -19,7 +28,7 @@ export class AllLanguageTranslator {
    */
   translateToAllLanguage (stringToTranslate) {
     // Check and fix the string
-    stringToTranslate = new SuperStringFixer().checkFixString(stringToTranslate)
+    stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
 
     // Split the string into words
     const words = stringToTranslate.split(' ')

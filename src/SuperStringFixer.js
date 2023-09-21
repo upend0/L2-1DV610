@@ -25,6 +25,7 @@ export class SuperStringFixer {
 
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
+    // & This does two things, maybe I should split it up into two methods
 
     // Check if the string is empty
     this.#checkEmptyString(stringToTranslate)
@@ -35,6 +36,7 @@ export class SuperStringFixer {
 
     // Replace multiple spaces with a single space
     stringToTranslate = stringToTranslate.replace(/\s+/g, ' ')
+    // & Maybe I should have this in its own method
 
     return stringToTranslate
   }
