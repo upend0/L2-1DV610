@@ -53,7 +53,10 @@ export class FigLanguageTranslator {
       index++
     }
 
-    // Split the word into two parts
+    // Set the index to the letter after the first vowel
+    index++
+
+    // Split the word into two parts. Make the split after the first vowel.
     const part1 = word.slice(0, index)
     const part2 = word.slice(index)
 
