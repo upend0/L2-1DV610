@@ -54,24 +54,10 @@ export class FigLanguageTranslator {
     const words = stringToTranslate.split(' ')
     // & Maybe change this to figWords
 
-    let translatedWords = []
+    const translatedWords = this.#translateWordsFromFigLanguage(words)
 
-    Fortsätt bygga denna for-loop
-
-    // Loop through the words
-    for (let i = 0; i < words.length; i++) {
-      // Check if the word starts with "fi" and the word after ends with "kon"
-      if (words[i].startsWith('fi') && words[i + 1].endsWith('kon')) {
-        // Remove "fi" and "kon" from the first and second word
-        words[i] = words[i].slice(2)
-        words[i + 1] = words[i + 1].slice(0, -3)
-      } else {
-        throw new Error('The string is not in FigLanguage.')
-      }
-
-      // Translate each word and join them back into a sentence
-      translatedWords.push(this.#translateWordFromFigLanguage(words[i]))
-    }
+    // Join the translated words into a string
+    const translatedString = translatedWords.join(' ')
 
     // // Translate each word and join them back into a sentence
     // const translatedWords = words.map(word => this.#translateWordFromFigLanguage(word))
@@ -108,8 +94,38 @@ export class FigLanguageTranslator {
     return translatedWords
   }
 
-  #translateWordFromFigLanguage (word) {
-    
+  /**
+   * Method to translate an array of words from FigLanguage to Swedish.
+   *
+   * @param {string[]} words - The words to translate.
+   * @returns {string[]} The translated words.
+   */
+  #translateWordsFromFigLanguage (words) {
+    const translatedWords = []
+
+    // Loop through the words
+    for (let i = 0; i < words.length; i += 2) {
+      // Check if the word starts with "fi" and the word after ends with "kon"
+      if (words[i].startsWith('fi') && words[i + 1].endsWith('kon')) {
+        // Remove "fi" and "kon" from the first and second word
+        words[i] = words[i].slice(2)
+        words[i + 1] = words[i + 1].slice(0, -3)
+        // & Change variable name to lastPartOfWord and firstPartOfWord
+
+        // Join the two words together
+        const joinedWord = words[i + 1] + words[i]
+
+        // Add the joined word to the array
+        translatedWords.push(joinedWord)
+      } else {
+        throw new Error('The string is not in FigLanguage.')
+      }
+
+      // // Translate each word and join them back into a sentence
+      // translatedWords.push(this.#translateWordFromFigLanguage(words[i]))
+    }
+
+    return translatedWords
   }
 
   /**
