@@ -76,4 +76,74 @@ describe('FigLanguageTranslator', () => {
     const result = figTranslator.translateToFigLanguage(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should translate "fiffe kakon" to "kaffe"', () => {
+    const argument = 'fiffe kakon'
+    const expectedOutput = 'kaffe'
+    const result = figTranslator.translateFigToSwedish(argument)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a single character word "fi ökon" to "ö"', () => {
+    const argument = 'fi ökon'
+    const expectedOutput = 'ö'
+    const result = figTranslator.translateFigToSwedish(argument)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that starts with a vowel correctly', () => {
+    const input = 'fipple äkon'
+    const expectedOutput = 'äpple'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that ends with a vowel correctly', () => {
+    const input = 'fi sjökon'
+    const expectedOutput = 'sjö'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that contains a special character correctly', () => {
+    const input = 'fidé ikon'
+    const expectedOutput = 'idé'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all lowercase letters correctly', () => {
+    const input = 'fipp kokon'
+    const expectedOutput = 'kopp'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all uppercase letters correctly', () => {
+    const input = 'FIPP KOKON'
+    const expectedOutput = 'kopp'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle leading and trailing spaces correctly', () => {
+    const input = '  fij hekon   '
+    const expectedOutput = 'hej'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle multiple spaces between words correctly', () => {
+    const input = 'fij   hekon   fi   påkon   fig   dikon'
+    const expectedOutput = 'hej på dig'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle mixed case input correctly', () => {
+    const input = 'FiJ hEkOn Fi pÅkOn FiG dIkOn'
+    const expectedOutput = 'hej på dig'
+    const result = figTranslator.translateFigToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
 })
