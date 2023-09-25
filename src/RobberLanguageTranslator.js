@@ -46,27 +46,22 @@ export class RobberLanguageTranslator {
    * @param {string} stringToTranslate - The string to translate.
    * @returns {string} The translated string.
    */
-  // translateFigToSwedish (stringToTranslate) {
-  //   // Check and fix the string
-  //   stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
+  translateRobberToSwedish (stringToTranslate) {
+    // Check and fix the string
+    stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
 
-  //   // Split the string into words
-  //   const words = stringToTranslate.split(' ')
-  //   // & Maybe change this to figWords
+    // Split the string into words
+    const words = stringToTranslate.split(' ')
+    // & Maybe change this to robberWords
 
-  //   const translatedWords = this.#translateWordsFromRobberLanguage(words)
+    // Translate each word and join them back into a sentence
+    const translatedWords = words.map(word => this.#translateWordFromRobberLanguage(word))
+    // & Maybe change this to swedishWords
+    const translatedString = translatedWords.join(' ')
+    // & Maybe change this to swedishString
 
-  //   // Join the translated words into a string
-  //   const translatedString = translatedWords.join(' ')
-
-  //   // // Translate each word and join them back into a sentence
-  //   // const translatedWords = words.map(word => this.#translateWordFromRobberLanguage(word))
-  //   // // & Maybe change this to swedishWords
-  //   // const translatedString = translatedWords.join(' ')
-  //   // // & Maybe change this to swedishString
-
-  //   return translatedString
-  // }
+    return translatedString
+  }
 
   /**
    * Method to translate a single word to RobberLanguage.
@@ -94,37 +89,37 @@ export class RobberLanguageTranslator {
   }
 
   /**
-   * Method to translate an array of words from RobberLanguage to Swedish.
+   * Method to translate a word from RobberLanguage to Swedish.
    *
-   * @param {string[]} words - The words to translate.
-   * @returns {string[]} The translated words.
+   * @param {string} word - The word to translate.
+   * @returns {string} The translated word.
    */
-  #translateWordsFromRobberLanguage (words) {
-    const translatedWords = []
+  #translateWordFromRobberLanguage (word) {
+    // & Maybe change word to robberWord
+    let translatedWord = ''
+    // & Maybe change this to swedishWord
 
-    // Loop through the words
-    for (let i = 0; i < words.length; i += 2) {
-      // Check if the word starts with "fi" and the word after ends with "kon"
-      if (words[i].startsWith('fi') && words[i + 1].endsWith('kon')) {
-        // Remove "fi" and "kon" from the first and second word
-        words[i] = words[i].slice(2)
-        words[i + 1] = words[i + 1].slice(0, -3)
-        // & Change variable name to lastPartOfWord and firstPartOfWord
-
-        // Join the two words together
-        const joinedWord = words[i + 1] + words[i]
-
-        // Add the joined word to the array
-        translatedWords.push(joinedWord)
+    // Loop through the letters in the word
+    for (let i = 0; i < word.length; i++) {
+      // Check if the letter is a vowel
+      if (this.#isVowel(word[i])) {
+        // Add the vowel to the translated word
+        translatedWord += word[i]
       } else {
-        throw new Error('The string is not in RobberLanguage.')
+        // Else the letter is a consonant
+
+        // Check if the consonant is followed by an 'o' and by the same consonant again
+        if (word[i + 1] === 'o' && word[i + 2] === word[i]) {
+          // Add the consonant to the translated word
+          translatedWord += word[i]
+          // Skip the 'o' and the consonant
+          i += 2
+        } else {
+          throw new Error('The string is not in RobberLanguage.')
+        }
       }
-
-      // // Translate each word and join them back into a sentence
-      // translatedWords.push(this.#translateWordFromRobberLanguage(words[i]))
     }
-
-    return translatedWords
+    return translatedWord
   }
 
   /**
