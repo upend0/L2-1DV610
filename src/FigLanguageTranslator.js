@@ -5,6 +5,9 @@
  * @version 1.0.0
  */
 
+// * 50 lines of code
+// * 3 if/for/while
+
 import { SuperStringFixer } from './SuperStringFixer.js'
 
 /**
@@ -14,7 +17,7 @@ export class FigLanguageTranslator {
   #superStringFixer
 
   /**
-   * Creates an instance of AllLanguageTranslator.
+   * Creates an instance of FigLanguageTranslator.
    */
   constructor () {
     this.#superStringFixer = new SuperStringFixer()
@@ -74,6 +77,7 @@ export class FigLanguageTranslator {
    * @param {string} word - The word to translate.
    * @returns {string} The translated word.
    */
+  // & A comment that isn't correct anymore - now words are returned instead of word
   #translateWordToFigLanguage (word) {
     // Find the index of the first vowel
     let index = 0

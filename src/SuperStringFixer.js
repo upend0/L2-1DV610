@@ -5,6 +5,9 @@
  * @version 1.0.0
  */
 
+// * 26 lines of code (without #isVowel method)
+// * 3 if/for/while
+
 /**
  * Represents a SuperStringFixer that fixes a string.
  */

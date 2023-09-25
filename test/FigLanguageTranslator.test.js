@@ -146,4 +146,6 @@ describe('FigLanguageTranslator', () => {
     const result = figTranslator.translateFigToSwedish(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  // TODO: Add tests for invalid Fig Language input
 })

@@ -5,6 +5,9 @@
  * @version 1.0.0
  */
 
+// * 25 lines of code
+// * 1 if/for/while
+
 import { SuperStringFixer } from './SuperStringFixer.js'
 
 /**

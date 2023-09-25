@@ -146,4 +146,6 @@ describe('RobberLanguageTranslator', () => {
     const result = robberTranslator.translateRobberToSwedish(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  // TODO: Add tests for invalid robber language input
 })
