@@ -41,4 +41,39 @@ describe('RobberLanguageTranslator', () => {
     const result = robberTranslator.translateToRobberLanguage(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should translate a word with all lowercase letters correctly', () => {
+    const input = 'hej'
+    const expectedOutput = 'hohejoj'
+    const result = robberTranslator.translateToRobberLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all uppercase letters correctly', () => {
+    const input = 'HEJ'
+    const expectedOutput = 'hohejoj'
+    const result = robberTranslator.translateToRobberLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle leading and trailing spaces correctly', () => {
+    const input = '  hej   '
+    const expectedOutput = 'hohejoj'
+    const result = robberTranslator.translateToRobberLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle multiple spaces between words correctly', () => {
+    const input = 'hej    på    dig'
+    const expectedOutput = 'hohejoj popå dodigog'
+    const result = robberTranslator.translateToRobberLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle mixed case input correctly', () => {
+    const input = 'Hej På Dig'
+    const expectedOutput = 'hohejoj popå dodigog'
+    const result = robberTranslator.translateToRobberLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
 })
