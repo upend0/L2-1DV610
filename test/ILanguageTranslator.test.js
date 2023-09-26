@@ -34,4 +34,46 @@ describe('ILanguageTranslator', () => {
     const result = iTranslator.translateToILanguage(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should translate a word that contains a special character correctly', () => {
+    const input = 'idé'
+    const expectedOutput = 'idi'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all lowercase letters correctly', () => {
+    const input = 'hej'
+    const expectedOutput = 'hij'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all uppercase letters correctly', () => {
+    const input = 'HEJ'
+    const expectedOutput = 'hij'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle leading and trailing spaces correctly', () => {
+    const input = '  hej   '
+    const expectedOutput = 'hij'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle multiple spaces between words correctly', () => {
+    const input = 'hej    på    dig'
+    const expectedOutput = 'hij pi dig'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle mixed case input correctly', () => {
+    const input = 'Hej På Dig'
+    const expectedOutput = 'hij pi dig'
+    const result = iTranslator.translateToILanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
 })
