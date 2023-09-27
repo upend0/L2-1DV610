@@ -76,4 +76,74 @@ describe('PLanguageTranslator', () => {
     const result = pTranslator.translateToPLanguage(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should translate "hepej påpå dipig" to "hej på dig"', () => {
+    const argument = 'hepej påpå dipig'
+    const expectedOutput = 'hej på dig'
+    const result = pTranslator.translatePToSwedish(argument)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a single character word "öpö" to "ö"', () => {
+    const argument = 'öpö'
+    const expectedOutput = 'ö'
+    const result = pTranslator.translatePToSwedish(argument)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that starts with a vowel correctly', () => {
+    const input = 'äpäpplepe'
+    const expectedOutput = 'äpple'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that ends with a vowel correctly', () => {
+    const input = 'sjöpö'
+    const expectedOutput = 'sjö'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word that contains a special character correctly', () => {
+    const input = 'ipidépé'
+    const expectedOutput = 'idé'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all lowercase letters correctly', () => {
+    const input = 'hepej'
+    const expectedOutput = 'hej'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should translate a word with all uppercase letters correctly', () => {
+    const input = 'HEPEJ'
+    const expectedOutput = 'hej'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle leading and trailing spaces correctly', () => {
+    const input = '  hepej   '
+    const expectedOutput = 'hej'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle multiple spaces between words correctly', () => {
+    const input = 'hepej    påpå    dipig'
+    const expectedOutput = 'hej på dig'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
+
+  it('should handle mixed case input correctly', () => {
+    const input = 'Hepej Påpå Dipig'
+    const expectedOutput = 'hej på dig'
+    const result = pTranslator.translatePToSwedish(input)
+    expect(result).toEqual(expectedOutput)
+  })
 })
