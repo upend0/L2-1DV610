@@ -78,4 +78,11 @@ describe('AllLanguageTranslator', () => {
     const result = allTranslator.translateToAllLanguage(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should translate "ejhall åpall igdall" to "hej på dig"', () => {
+    const input = 'ejhall åpall igdall'
+    const expectedOutput = 'hej på dig'
+    const result = allTranslator.translateFromAllLanguage(input)
+    expect(result).toEqual(expectedOutput)
+  })
 })
