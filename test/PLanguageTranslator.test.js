@@ -146,4 +146,17 @@ describe('PLanguageTranslator', () => {
     const result = pTranslator.translatePToSwedish(input)
     expect(result).toEqual(expectedOutput)
   })
+
+  it('should throw an error if the string is not in PLanguage', () => {
+    const inputs = [
+      'hej på dig',
+      'hepj påpå dipig',
+      'hepej påp dipig',
+      'hepej påpå dig'
+    ]
+
+    inputs.forEach(input => {
+      expect(() => pTranslator.translatePToSwedish(input)).toThrow('The string is not in PLanguage.')
+    })
+  })
 })

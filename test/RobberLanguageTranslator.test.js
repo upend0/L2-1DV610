@@ -147,5 +147,17 @@ describe('RobberLanguageTranslator', () => {
     expect(result).toEqual(expectedOutput)
   })
 
-  // TODO: Add tests for invalid robber language input
+  it('should throw an error if the string is not in RobberLanguage', () => {
+    const inputs = [
+      'hej på dig',
+      'hoejoj popå dodigog',
+      'hohej popå dodigog',
+      'hohejoj opå dodigog',
+      'hohejoj popå dodigg'
+    ]
+
+    inputs.forEach(input => {
+      expect(() => robberTranslator.translateRobberToSwedish(input)).toThrow('The string is not in RobberLanguage.')
+    })
+  })
 })

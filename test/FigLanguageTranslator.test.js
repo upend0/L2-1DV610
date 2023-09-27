@@ -147,5 +147,18 @@ describe('FigLanguageTranslator', () => {
     expect(result).toEqual(expectedOutput)
   })
 
-  // TODO: Add tests for invalid Fig Language input
+  it('should throw an error if the string is not in Fig Language', () => {
+    const inputs = [
+      'ij hekon',
+      'fj hekon',
+      'fij heon',
+      'fij hekn',
+      'fij heko',
+      'hej'
+    ]
+
+    inputs.forEach(input => {
+      expect(() => figTranslator.translateFigToSwedish(input)).toThrow('The string is not in FigLanguage.')
+    })
+  })
 })
