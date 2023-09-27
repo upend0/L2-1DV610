@@ -7,6 +7,7 @@
 
 // * 50 lines of code
 // * 3 if/for/while
+// * 2 public methods
 
 import { SuperStringFixer } from './SuperStringFixer.js'
 
@@ -61,12 +62,6 @@ export class FigLanguageTranslator {
 
     // Join the translated words into a string
     const translatedString = translatedWords.join(' ')
-
-    // // Translate each word and join them back into a sentence
-    // const translatedWords = words.map(word => this.#translateWordFromFigLanguage(word))
-    // // & Maybe change this to swedishWords
-    // const translatedString = translatedWords.join(' ')
-    // // & Maybe change this to swedishString
 
     return translatedString
   }
@@ -124,9 +119,6 @@ export class FigLanguageTranslator {
       } else {
         throw new Error('The string is not in FigLanguage.')
       }
-
-      // // Translate each word and join them back into a sentence
-      // translatedWords.push(this.#translateWordFromFigLanguage(words[i]))
     }
 
     return translatedWords

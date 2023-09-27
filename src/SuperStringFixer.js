@@ -5,8 +5,9 @@
  * @version 1.0.0
  */
 
-// * 26 lines of code (without #isVowel method)
+// * 26 lines of code
 // * 3 if/for/while
+// * 1 public method
 
 /**
  * Represents a SuperStringFixer that fixes a string.
@@ -77,17 +78,5 @@ export class SuperStringFixer {
     if (!regex.test(stringToTranslate)) {
       throw new Error('The string contains invalid characters.')
     }
-  }
-
-  /**
-   * Method to check if a character is a vowel.
-   *
-   * @param {char} char - The character to check.
-   * @returns {boolean} True if the character is a vowel, otherwise false.
-   */
-  // TODO: Decide where I should have this method
-  #isVowel (char) {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'é', 'ü', 'á', 'à', 'è', 'ì', 'ò', 'ú']
-    return vowels.includes(char.toLowerCase())
   }
 }

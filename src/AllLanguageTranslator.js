@@ -7,6 +7,7 @@
 
 // * 25 lines of code
 // * 1 if/for/while
+// * 1 public method
 
 import { SuperStringFixer } from './SuperStringFixer.js'
 
@@ -44,29 +45,6 @@ export class AllLanguageTranslator {
   }
 
   /**
-   * Public method for translating a string from All Language.
-   *
-   * @param {string} stringToTranslate - The string to translate.
-   * @returns {string} The translated string.
-   */
-  // translateFromAllLanguage (stringToTranslate) {
-  //   // Trim the string and make it lowercase
-  //   stringToTranslate = stringToTranslate.trim().toLowerCase()
-
-  //   // Check if the string is valid
-  //   this.#checkValidString(stringToTranslate)
-
-  //   // Split the input string into words
-  //   const words = stringToTranslate.split(' ')
-
-  //   // Translate each word and join them back into a sentence
-  //   const translatedWords = words.map(word => this.#translateWordToAllLanguage(word))
-  //   const translatedString = translatedWords.join(' ').toLocaleLowerCase()
-
-  //   return translatedString
-  // }
-
-  /**
    * Method to translate a single word to All Language.
    *
    * @param {string} word - The word to translate.
@@ -79,16 +57,6 @@ export class AllLanguageTranslator {
     }
     return word.slice(index) + word.slice(0, index) + 'all'
   }
-
-  /**
-   * Method to translate a single word from All Language.
-   *
-   * @param {string} word - The word to translate.
-   * @returns {string} The translated word.
-   */
-  // #translateWordFromAllLanguage (word) {
-  //   return ...
-  // }
 
   /**
    * Method to check if a character is a vowel.

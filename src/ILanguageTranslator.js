@@ -7,6 +7,7 @@
 
 // * 29 lines of code
 // * 2 if/for/while
+// * 1 public method
 
 import { SuperStringFixer } from './SuperStringFixer.js'
 
@@ -44,29 +45,6 @@ export class ILanguageTranslator {
   }
 
   /**
-   * Public method for translating a string from ILanguage.
-   *
-   * @param {string} stringToTranslate - The string to translate.
-   * @returns {string} The translated string.
-   */
-  // translateIToSwedish (stringToTranslate) {
-  //   // Check and fix the string
-  //   stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
-
-  //   // Split the string into words
-  //   const words = stringToTranslate.split(' ')
-  //   // & Maybe change this to IWords
-
-  //   // Translate each word and join them back into a sentence
-  //   const translatedWords = words.map(word => this.#translateWordFromILanguage(word))
-  //   // & Maybe change this to swedishWords
-  //   const translatedString = translatedWords.join(' ')
-  //   // & Maybe change this to swedishString
-
-  //   return translatedString
-  // }
-
-  /**
    * Method to translate a single word to ILanguage.
    *
    * @param {string} word - The word to translate.
@@ -90,40 +68,6 @@ export class ILanguageTranslator {
 
     return translatedWord
   }
-
-  /**
-   * Method to translate a word from ILanguage to Swedish.
-   *
-   * @param {string} word - The word to translate.
-   * @returns {string} The translated word.
-   */
-  // #translateWordFromILanguage (word) {
-  //   // & Maybe change word to IWord
-  //   let translatedWord = ''
-  //   // & Maybe change this to swedishWord
-
-  //   // Loop through the letters in the word
-  //   for (let i = 0; i < word.length; i++) {
-  //     // Check if the letter is a vowel
-  //     if (this.#isVowel(word[i])) {
-  //       // Add the vowel to the translated word
-  //       translatedWord += word[i]
-  //     } else {
-  //       // Else the letter is a consonant
-
-  //       // Check if the consonant is followed by an 'o' and by the same consonant again
-  //       if (word[i + 1] === 'o' && word[i + 2] === word[i]) {
-  //         // Add the consonant to the translated word
-  //         translatedWord += word[i]
-  //         // Skip the 'o' and the consonant
-  //         i += 2
-  //       } else {
-  //         throw new Error('The string is not in ILanguage.')
-  //       }
-  //     }
-  //   }
-  //   return translatedWord
-  // }
 
   /**
    * Method to check if a character is a vowel.

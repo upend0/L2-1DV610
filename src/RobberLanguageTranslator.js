@@ -7,6 +7,7 @@
 
 // * 53 lines of code
 // * 5 if/for/while
+// * 2 public methods
 
 import { SuperStringFixer } from './SuperStringFixer.js'
 
