@@ -1,6 +1,8 @@
 # L2-1DV610
 
 
+### Errors thrown
+Skriv något bra om detta
 
 
 ### List of Swedish words
