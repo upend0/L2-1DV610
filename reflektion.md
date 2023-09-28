@@ -21,6 +21,20 @@
 | translatedString – den översatta strängen               | Avoid encodings – borde inte skriva in string i namnet, men eftersom js inte är hårt typat tycker jag att det bidrar till tydlighet i denna viktiga variabel |
 |                                 | Use domain names – andra programmerare kan förstå typen av variabel och att det kan vara allt från ett ord långt till flera meningar |
 
+## Reflektion – kapitel 2
+
+### Use intention-revealing names
+Koden i modulen visade på både namn där det var lätt att förstå vad som skedde, utan att kolla vidare på koden utan genom att endast läsa namnet. Exempelvis i variabeln stringToTranslate framgick det tydligt att denna sträng senare skulle översättas, och i metoden translateToRobberLanguage var det även lättförståeligt att det i denna metod skulle ske en översättning till rövarspråket. Dock är klassnamnet SuperStringFixer mer otydligt, då det är svårt att utläsa vad som egentligen ska fixas i denna klass. Därtill används variabelnamnet words ofta genom hela modulen, vilket tyvärr saknar information om vilket språk som ordet är på, vilket kan leda till onödig förvirring i och med att så många olika språk hanteras i denna modul. Bättre alternativ istället för att enkom ha words som variabelnamn hade varit att skapa tydligare distinktioner mellan klasserna och metoderna genom att exempelvis ha namnen figWords, robberWords och pWords istället.
+
+### Use domain names
+I vissa fall i modulen finns det exempel på när namn borde ha bytts ut till mer domän-specifika. Ett sådan fall återfinns i metoden #translateWordsFromFigLanguage där en namngivning såsom exempelvis lastPartOfWord och firstPartOfWord kunde ha använts istället, då detta hade kunnat medföra extra tydlighet för personer med kunskap inom fikonspråkets domän (då de förhoppningsvis kunde inneha kännedom om att vid översättning från fikonspråket behövs det delar av två ord för att kombinera ihop till ett svenskt ord). 
+
+### Pick one word per concept
+Genomgående i modulen har metodnamn med prefixen translateTo valts för att visa på att något ska översättas, och där finns även metodnamn med prefixen translateWorsTo för att visa på att det är endast ett ord som skall översättas i den berörda metoden.
+
+### Method names and class names
+Generellt genom hela modulen så är namnen på metoderna verb – såsom translateToFigLanguage – och namnen på klasserna är substantiv – såsom AllLanguageTranslator.
+
 
 ## Tabellreflektion - kapitel 3
 
