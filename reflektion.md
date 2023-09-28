@@ -55,3 +55,17 @@ Generellt genom hela modulen så är namnen på metoderna verb – såsom transl
 |                                             | Monadic – tar in ett arguments, vilket det ställs en fråga om |
 |                                             | Side effects – har svårt att avgöra om ett kastat Error kan betraktas som en sidoeffekt… |
 
+## Reflektion – kapitel 3
+
+### DRY (Don’t Repeat Yourself)
+Flera av klasserna har väldigt liknande translateTo-metoder. Detta hade varit bra att arbeta bort och göra koden mer i linje med DRY-principen, men tyvärr har jag inte kommit på hur detta skulle kunna göras. Även metoden #isVowel bryter mot DRY-principen eftersom den finns i varje translator-klass. Denna hade möjligtvis gått att bryta ut till en metod i en egen klass, som sedan hade kunnat anropas från varje translator-klass.
+
+### Do one thing
+I denna modul finns det både exempel på metoder som håller sig till riktlinjen om att endast utföra en sak, men det finns även metoder som bryter mot den. En metod som bryter mot denna princip är checkFixString eftersom att den utför både valideringar av strängen som matas in (där det därtill kastas Errors om strängen på något sätt inte är giltig) och även förändrar strängen genom att ta bort onödiga mellanslag samt göra hela strängen till gemener. Detta är absolut inte att endast göra en sak, men jag har dock svårt att komma på hur jag skulle organisera om koden så att varje del av detta görs av endast en metod, och där koden samtidigt blir så DRY som möjligt.
+
+Däremot finns det också flera exempel på metoder som endast gör en sak. Exempelvis alla metoder med prefixet translateWordTo där metoderna endast översätter ett ord till det berörda språket, samt metoden isVowel som endast kontrollerar om den bokstav som är input är en vokal eller inte, och som då returnerar ett booleanskt värde utifrån detta.
+
+### Small functions
+Generellt består modulen av klasser med metoder som är relativt små. Flera metoder är endast 5 rader kod – såsom checkStringLength, checkEmptyString, och isVowel – och de längsta metoderna är runt 14-16 rader kod – såsom translateWordFromRobberLanguage, translateWordFromPLanguage, och translateWordsFromFigLanguage. Dessa längsta metoder kan dock ändå betraktas som ganska korta, och verkar vara en okej längd enligt boken, då en enligt den helst inte bör överstiga 20 rader per funktion.
+
+
