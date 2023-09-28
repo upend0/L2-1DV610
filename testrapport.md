@@ -2,7 +2,9 @@
 
 Här är en testrapport som visar alla test som har utförts i modulen. Testerna är uppdelade och presenteras var klass för sig.
 
-Samtliga tester körs med Jest, och startas genom kommandot `npm run test`
+Samtliga tester körs med Jest. 
+- Installera Jest genom kommandot `npm install` 
+- Kör testerna genom kommandot `npm run test`
 
 ## Tester av AllLanguageTranslator
 
