@@ -68,4 +68,16 @@ Däremot finns det också flera exempel på metoder som endast gör en sak. Exem
 ### Small functions
 Generellt består modulen av klasser med metoder som är relativt små. Flera metoder är endast 5 rader kod – såsom checkStringLength, checkEmptyString, och isVowel – och de längsta metoderna är runt 14-16 rader kod – såsom translateWordFromRobberLanguage, translateWordFromPLanguage, och translateWordsFromFigLanguage. Dessa längsta metoder kan dock ändå betraktas som ganska korta, och verkar vara en okej längd enligt boken, då en enligt den helst inte bör överstiga 20 rader per funktion.
 
+## Generell reflektion 
+
+### Namngivning
+En viktig lärdom att dra från dessa reflektioner är angående namngivningen av klasser, metoder och variabler. Det är av stor vikt att använda tydliga och informativa namn som gör koden läsbar och lättförståelig. Namnen bör tydligt indikera på vad som ska ske i metoden eller med variabeln, så att det går att endast läsa namnen och sedan förstå vad som händer utan att läsa själva koden. Och även om det kan vara lockande att försöka skoja till det lite i namngivningen, så är det bra att erinra sig om att detta nog tyvärr kan leda till ökad förvirring. 
+
+### Funktioner/metoder
+Därtill finns det flera viktiga lärdomar att dra från reflektionerna kring funktioner. Något viktigt är att se till att varje funktion/metod endast gör en sak (som helst är att antingen utföra något eller returnera något), att den håller sig till samma abstraktionsnivå, och att den inte har några sidoeffekter. Dessutom är det av stor vikt att metoderna är små och lättöverskådliga, samt har namn som tydligt beskriver vad de gör. Det är också av stor vikt att aktivt arbeta med att inte upprepa kod; att hålla koden DRY.
+
+### Kommentarer
+I denna modul finns det otroligt mycket kommentarer. Har JSDOC-kommenterar till varje metod samt klass, och de tillför inte någon ytterligare information om varför något görs, utan förklarar mer vad som görs. Enligt boken kan dessa JSDOC-kommentarer anses redundanta, vilket jag till mångt och mycket kan hålla med om. Dock anser jag även att dessa kommentarer har en viss betydelse när det kommer till få en snabb förståelse för parametrar och vad en metod returnerar, eftersom att det (inbyggt?) i VSC finns möjligheten att hovra över ett metodnamn och då få upp en ruta innehållande informationen i JSDOC-kommentaren, där det då snabbt blir tydligt vilka argument och returer som kan förväntas.
+
+Därtill finns det väldigt många radkommentarer i denna modul. Dessa kommentarer uppkommer oftast för att de har blivit en del av min utvecklingsprocess, där jag brukar punkta upp vad som jag tänkt ska göras i kommentarer först, och sedan skriver själva koden. Därtill lägger jag också till olika frågor och funderingar angående koden genom att skriva radkommentarer (som dessutom kan färgkodas eftersom jag använder tillägget Colorful Comments). Därutöver så har jag märkt att jag som utvecklare föredrar kod med lite för mycket kommentarer över kod med lite för lite kommentarer, och brukar därför inte snåla med mina egna kommentarer. Även att jag särskilt mot slutet av ett projekt brukar gå igenom de flesta kommentarerna för att radera onödiga sådana, så brukar många bli kvar i slutändan, vilket även är tydligt i denna modul.
 
