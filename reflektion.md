@@ -21,3 +21,23 @@
 | translatedString                | Avoid encodings – borde inte skriva in string i namnet, men eftersom js inte är hårt typat tycker jag att det bidrar till tydlighet i denna viktiga variabel |
 |                                 | Use domain names – andra programmerare kan förstå typen av variabel och att det kan vara allt från ett ord långt till flera meningar |
 
+
+## Tabellreflektion - kapitel 3
+
+| Namn och förklaring                        | Reflektion och regler från ch 3 Clean Code                                        |
+|--------------------------------------------|----------------------------------------------------------------------------------|
+| checkFixString – kontrollerar att strängen som inkommer är okej, tar bort onödiga mellanslag, gör alla bokstäver till gemener | - Do one thing – denna metod gör en massa saker, både gällande validering och att snygga till strängen |
+|                                             | - Use descriptive names – ganska oklart vad för någon ”fix” som utförs |
+|                                             | - Command query separation – metoden både utför kontroller och returnerar en tillfixad sträng |
+|                                             | - One abstraction level – mestadels hög abstraktionsnivå, men sen kommer det helt plötsligt .trim() och .toLowerCase() som är på lägre abstraktionsnivå |
+| isVowel – kontrollerar om en bokstav är en vokal | - DRY – finns i varje translator-klass |
+|                                             | - Use descriptive names – namnet berättar tydligt vad metoden gör, och skvallrar dessutom om att det bör vara en boolean som returneras eftersom metodnamnet börjar på ”is” |
+|                                             | - Do one thing – metoden gör endast denna kontroll |
+| translateWordFromPLanguage – översätter ett ord från P-språket till svenska | - Indentation level – denna metod innehåller tre lager av nästlade for och if, vilket kan göra koden onödigt komplicerad och svårförståelig |
+| translateWordToFigLanguage – översätter ett ord till fikon-språket | - Do one thing – denna metod gör bara detta |
+|                                             | - Side effects – metoden har inga observerbara sidoeffekter, utan den returnerar endast ordet översatt, och har ingen påverkan på originalordet |
+| checkEmptyString – kontrollerar om den inmatade strängen är tom, och slänger i sådana fall ett Error | - Small functions – metoden är endast fyra rader |
+|                                             | - One abstraction level – hela metoden har låg abstraktionsnivå |
+|                                             | - Monadic – tar in ett arguments, vilket det ställs en fråga om |
+|                                             | - Side effects – har svårt att avgöra om ett kastat Error kan betraktas som en sidoeffekt… |
+
