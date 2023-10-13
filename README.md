@@ -1,6 +1,8 @@
 # L2-1DV610
 
-Write so much more here!
+This is a school project done in the course 1dv610 at Linnaeus University.
+
+The project includes translators for various made-up languages, including All-Language, Robber Language, Fig Language, I-Language, and P-Language.
 
 ## Installation
 Install the dependencies with `npm install`
@@ -13,6 +15,16 @@ Install the dependencies with `npm install`
 - [Rövarspråket - Wikipedia](https://sv.wikipedia.org/wiki/R%C3%B6varspr%C3%A5ket)
 
 ### Examples of translations
+
+Translating the Swedish sentence "hej på dig":
+| Language         | Translation                  |
+|------------------|------------------------------|
+| All-språket      | ejhall åpall igdall         |
+| Fikonspråket     | fij hekon fi påkon fig dikon |
+| I-språket        | hij pi dig                   |
+| P-språket        | hepej påpå dipig            |
+| Rövarspråket     | hohejoj popå dodigog         |
+
 
 ## Classes and their public methods
 
@@ -51,9 +63,6 @@ A class that translates a string to PLanguage and vice versa.
 
 ## Tests
 The tests are done with Jest. After the dependencies (which includes Jest) have been installed, run the tests with `npm run test`
-
-## Errors thrown
-
 
 ## Further development
 
