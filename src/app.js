@@ -4,12 +4,8 @@ import { ILanguageTranslator } from './ILanguageTranslator.js'
 import { PLanguageTranslator } from './PLanguageTranslator.js'
 import { RobberLanguageTranslator } from './RobberLanguageTranslator.js'
 
-// & Kanske byta namn till TheAllLanguageTranslator eller ThePretendAllLanguageTranslator...?
-
-export const translator = {
-  theAllLanguageTranslator: new TheAllLanguageTranslator(),
-  figLanguageTranslator: new FigLanguageTranslator(),
-  iLanguageTranslator: new ILanguageTranslator(),
-  pLanguageTranslator: new PLanguageTranslator(),
-  robberLanguageTranslator: new RobberLanguageTranslator()
-}
+export const theAllLanguageTranslator = new TheAllLanguageTranslator()
+export const figLanguageTranslator = new FigLanguageTranslator()
+export const iLanguageTranslator = new ILanguageTranslator()
+export const pLanguageTranslator = new PLanguageTranslator()
+export const robberLanguageTranslator = new RobberLanguageTranslator()
