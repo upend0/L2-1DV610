@@ -28,11 +28,11 @@ Translating the Swedish sentence "hej på dig":
 
 ## Classes and their public methods
 
-### Class: AllLanguageTranslator
+### Class: TheAllLanguageTranslator
 A class that translates a string to All Language.
 
 #### Public methods
-* `translateToAllLanguage(stringToTranslate)`: Translates a string to All Language.
+* `translateToTheAllLanguage(stringToTranslate)`: Translates a string to the All Language.
 
 ### Class: RobberLanguageTranslator
 A class that translates a string to Robber Language and vice versa.

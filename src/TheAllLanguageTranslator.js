@@ -1,5 +1,5 @@
 /**
- * Module for the class AllLanguageTranslator.
+ * Module for the class TheAllLanguageTranslator.
  *
  * @author Maria Fredriksson <mf223wk@student.lnu.se>
  * @version 1.0.0
@@ -12,25 +12,25 @@
 import { SuperStringFixer } from './SuperStringFixer.js'
 
 /**
- * Represents a translator that translates a string to All Language.
+ * Represents a translator that translates a string to the All Language.
  */
-export class AllLanguageTranslator {
+export class TheAllLanguageTranslator {
   #superStringFixer
 
   /**
-   * Creates an instance of AllLanguageTranslator.
+   * Creates an instance of TheAllLanguageTranslator.
    */
   constructor () {
     this.#superStringFixer = new SuperStringFixer()
   }
 
   /**
-   * Public method for translating a string to All Language.
+   * Public method for translating a string to the All Language.
    *
    * @param {string} stringToTranslate - The string to translate.
    * @returns {string} The translated string.
    */
-  translateToAllLanguage (stringToTranslate) {
+  translateToTheAllLanguage (stringToTranslate) {
     // Check and fix the string
     stringToTranslate = this.#superStringFixer.checkFixString(stringToTranslate)
 
@@ -38,19 +38,19 @@ export class AllLanguageTranslator {
     const words = stringToTranslate.split(' ')
 
     // Translate each word and join them back into a sentence
-    const translatedWords = words.map(word => this.#translateWordToAllLanguage(word))
+    const translatedWords = words.map(word => this.#translateWordToTheAllLanguage(word))
     const translatedString = translatedWords.join(' ')
 
     return translatedString
   }
 
   /**
-   * Method to translate a single word to All Language.
+   * Method to translate a single word to the All Language.
    *
    * @param {string} word - The word to translate.
    * @returns {string} The translated word.
    */
-  #translateWordToAllLanguage (word) {
+  #translateWordToTheAllLanguage (word) {
     let index = 0
     while (index < word.length && !this.#isVowel(word[index])) {
       index++
