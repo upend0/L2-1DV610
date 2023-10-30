@@ -5,23 +5,22 @@
  * @version 1.0.0
  */
 
-// * 25 lines of code
-// * 1 if/for/while
-// * 1 public method
-
 import { SuperStringFixer } from './SuperStringFixer.js'
+import { Utilities } from './Utilities.js'
 
 /**
  * Represents a translator that translates a string to the All Language.
  */
 export class TheAllLanguageTranslator {
   #superStringFixer
+  #utilities
 
   /**
    * Creates an instance of TheAllLanguageTranslator.
    */
   constructor () {
     this.#superStringFixer = new SuperStringFixer()
+    this.#utilities = new Utilities()
   }
 
   /**
@@ -52,20 +51,12 @@ export class TheAllLanguageTranslator {
    */
   #translateWordToTheAllLanguage (word) {
     let index = 0
-    while (index < word.length && !this.#isVowel(word[index])) {
+    // while (index < word.length && !this.#isVowel(word[index])) {
+    //   index++
+    // }
+    while (index < word.length && !this.#utilities.isVowel(word[index])) {
       index++
     }
     return word.slice(index) + word.slice(0, index) + 'all'
-  }
-
-  /**
-   * Method to check if a character is a vowel.
-   *
-   * @param {char} char - The character to check.
-   * @returns {boolean} True if the character is a vowel, otherwise false.
-   */
-  #isVowel (char) {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'é', 'ü', 'á', 'à', 'è', 'ì', 'ò', 'ú']
-    return vowels.includes(char.toLowerCase())
   }
 }

@@ -5,23 +5,22 @@
  * @version 1.0.0
  */
 
-// * 50 lines of code
-// * 3 if/for/while
-// * 2 public methods
-
 import { SuperStringFixer } from './SuperStringFixer.js'
+import { Utilities } from './Utilities.js'
 
 /**
  * Represents a translator that translates a string to FigLanguage.
  */
 export class FigLanguageTranslator {
   #superStringFixer
+  #utilities
 
   /**
    * Creates an instance of FigLanguageTranslator.
    */
   constructor () {
     this.#superStringFixer = new SuperStringFixer()
+    this.#utilities = new Utilities()
   }
 
   /**
@@ -76,7 +75,7 @@ export class FigLanguageTranslator {
   #translateWordToFigLanguage (word) {
     // Find the index of the first vowel
     let index = 0
-    while (index < word.length && !this.#isVowel(word[index])) {
+    while (index < word.length && !this.#utilities.isVowel(word[index])) {
       index++
     }
 
@@ -122,16 +121,5 @@ export class FigLanguageTranslator {
     }
 
     return translatedWords
-  }
-
-  /**
-   * Method to check if a character is a vowel.
-   *
-   * @param {string} char - The character to check.
-   * @returns {boolean} True if the character is a vowel, otherwise false.
-   */
-  #isVowel (char) {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'é', 'ü', 'á', 'à', 'è', 'ì', 'ò', 'ú']
-    return vowels.includes(char.toLowerCase())
   }
 }
