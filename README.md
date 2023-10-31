@@ -5,12 +5,13 @@ This is a school project done in the course 1dv610 at Linnaeus University.
 The project includes translators for various made-up languages, including All-Language, Robber Language, Fig Language, I-Language, and P-Language.
 
 ## Disclaimer
-The code in this project is not the best it could be, and it still has a lot of areas that could be improved in accordance with the guidelines presented in the book Clean Code - A Handbook of Agile Software Craftmanship written by Robert C. Martin. Many of these areas are discussed (in Swedish) in the [reflektion.md](./reflektion.md).
+The code in this project is not the best it could be, and it still has a lot of areas that could be improved in accordance with the guidelines presented in the book Clean Code - A Handbook of Agile Software Craftmanship written by Robert C. Martin. Many of these areas are discussed (in Swedish) in the [reflektion.md](./reflektion.md), and some can also be seen by looking at line comments with discussions about improvements. There were simply not enough time to fix more of the imperfections.
 
 However, some imperfections have been fixed, like:
 * Writing a more explanatory and explicit README
 * Changing the confusing name of AllLanguage to TheAllLanguage
 * Changing the app.js to export all the translator-classes from one place.
+* Make the code a bit more DRY (Don't Repeat Yourself) by creating the Utilities class and place the much used isVowel method there.
 
 ## Installation
 Install the dependencies with `npm install`
@@ -74,8 +75,11 @@ The tests are done with Jest. After the dependencies (which includes Jest) have 
 
 ## Further development
 
+### Code quality improvement
+The code base can still be improved a lot in accordance with the guidelines presented in the book Clean Code - A Handbook of Agile Software Craftmanship written by Robert C. Martin. Many of these areas of improvement are discussed (in Swedish) in the [reflektion.md](./reflektion.md), and some can also be seen by looking at line comments with discussions about improvements.
+
 ### Extensions used
-When developing, Visual Studio Code has been used along with some extensions. One extension that has been used frequently is named Colorful Comments, and it  
+When developing, Visual Studio Code has been used along with some extensions. One extension that has been used frequently is named Colorful Comments, and it makes the comments color coded, which is helpful for dividing comments in different topics - like comments about areas to improve.
 
 ### List of Swedish words
 The list of Swedish words that are used in this project comes from [GitHub - almgru - svenska-ord](https://github.com/almgru/svenska-ord.txt). This is not used right now, but it is still there for when the module is developed further to implement a translator from AllLanguage to Swedish and from ILanguage to Swedish.
