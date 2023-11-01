@@ -22,6 +22,9 @@ export class SuperStringFixer {
   // & Maybe I should change the name of the method
   // & Maybe change the name of the argument
   checkFixString (stringToTranslate) {
+    // Check if the string is empty
+    this.#checkEmptyString(stringToTranslate)
+
     // Check the length of the string
     const maxStringLength = 10000
     // & Could I have this magic constant in something else?
@@ -30,9 +33,6 @@ export class SuperStringFixer {
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
     // & This does two things, maybe I should split it up into two methods
-
-    // Check if the string is empty
-    this.#checkEmptyString(stringToTranslate)
 
     // Check if the string is valid
     this.#checkValidString(stringToTranslate)
@@ -63,7 +63,7 @@ export class SuperStringFixer {
    * @param {string} stringToTranslate - The string to translate.
    */
   #checkEmptyString (stringToTranslate) {
-    if (stringToTranslate === '') {
+    if (stringToTranslate === '' || stringToTranslate === null || stringToTranslate === undefined) {
       throw new Error('The string is empty.')
     }
   }
