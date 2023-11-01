@@ -70,6 +70,21 @@ A class that translates a string to PLanguage and vice versa.
 * `translateToPLanguage(stringToTranslate)`: Translates a string to PLanguage.
 * `translatePToSwedish(stringToTranslate)`: Translates a string from PLanguage to Swedish.
 
+## Errors Thrown
+
+- **String Exceeds Maximum Length:** `Error: The string exceeds the maximum allowed length of 10000 characters.` - This error is thrown if the input string provided to the `checkFixString` method of `SuperStringFixer` exceeds the maximum allowed length of 10,000 characters.
+
+- **Empty String:** `Error: The string is empty.` - This error is thrown if the input string provided to the `checkFixString` method of `SuperStringFixer` is empty, null, or undefined.
+
+- **Invalid Characters in String:** `Error: The string contains invalid characters.` - This error is thrown if the input string provided to the `checkFixString` method of `SuperStringFixer` contains characters other than letters (including international characters) and spaces.
+
+- **Input Not in RobberLanguage:** `Error: The string is not in RobberLanguage.` - This error is thrown if the input string provided to the `translateWordFromRobberLanguage` method of `RobberLanguageTranslator` is not in RobberLanguage format. RobberLanguage words must consist of consonants followed by 'o' and the same consonant again.
+
+- **Input Not in FigLanguage:** `Error: The string is not in FigLanguage.` - This error is thrown if the input string provided to the `translateWordsFromFigLanguage` method of `FigLanguageTranslator` is not in FigLanguage format. FigLanguage words must start with "fi" and end with "kon."
+
+- **Input Not in PLanguage:** `Error: The string is not in PLanguage.` - This error is thrown if the input string provided to the `translateWordFromPLanguage` method of `PLanguageTranslator` is not in PLanguage format. PLanguage words must consist of vowel followed by 'p' and the same vowel again.
+
+
 ## Tests
 The tests are done with Jest. After the dependencies (which includes Jest) have been installed, run the tests with `npm run test`
 
