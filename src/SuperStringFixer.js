@@ -5,14 +5,11 @@
  * @version 1.0.0
  */
 
-// * 26 lines of code
-// * 3 if/for/while
-// * 1 public method
-
 /**
  * Represents a SuperStringFixer that fixes a string.
  */
 export class SuperStringFixer {
+  static maxStringLength = 10000
   /**
    * Public method to check and fix the string.
    *
@@ -26,9 +23,8 @@ export class SuperStringFixer {
     this.#checkEmptyString(stringToTranslate)
 
     // Check the length of the string
-    const maxStringLength = 10000
     // & Could I have this magic constant in something else?
-    this.#checkStringLength(stringToTranslate, maxStringLength)
+    this.#checkStringLength(stringToTranslate)
 
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
@@ -49,11 +45,10 @@ export class SuperStringFixer {
    * Private method to check the length of the string.
    *
    * @param {string} stringToTranslate - The string to translate.
-   * @param {number} maxStringLength - The maximum allowed length of the string.
    */
-  #checkStringLength (stringToTranslate, maxStringLength) {
-    if (stringToTranslate.length > maxStringLength) {
-      throw new Error(`The string exceeds the maximum allowed length of ${maxStringLength} characters.`)
+  #checkStringLength (stringToTranslate) {
+    if (stringToTranslate.length > SuperStringFixer.maxStringLength) {
+      throw new Error(`The string exceeds the maximum allowed length of ${SuperStringFixer.maxStringLength} characters.`)
     }
   }
 

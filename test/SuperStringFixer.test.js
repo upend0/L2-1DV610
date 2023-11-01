@@ -14,11 +14,11 @@ describe('SuperStringFixer', () => {
   })
 
   it('should throw an error when the string exceeds the maximum allowed length', () => {
-    const maxStringLength = 10000
+    const maxStringLength = SuperStringFixer.maxStringLength
     // Create a string that exceeds the maximum allowed length
     const argument = 'a'.repeat(maxStringLength + 1)
 
-    expect(() => superStringFixer.checkFixString(argument, maxStringLength)).toThrow(
+    expect(() => superStringFixer.checkFixString(argument)).toThrow(
       `The string exceeds the maximum allowed length of ${maxStringLength} characters.`
     )
   })

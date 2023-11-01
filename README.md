@@ -5,7 +5,7 @@ This is a school project done in the course 1dv610 at Linnaeus University.
 The project includes translators for various made-up languages, including All-Language, Robber Language, Fig Language, I-Language, and P-Language.
 
 ## Disclaimer
-The code in this project is not the best it could be, and it still has a lot of areas that could be improved in accordance with the guidelines presented in the book Clean Code - A Handbook of Agile Software Craftmanship written by Robert C. Martin. Many of these areas are discussed (in Swedish) in the [reflektion.md](./reflektion.md), and some can also be seen by looking at line comments with discussions about improvements. There were simply not enough time to fix more of the imperfections.
+The code in this project is not the best it could be, and it still has a lot of areas that could be improved in accordance with the guidelines presented in the book Clean Code - A Handbook of Agile Software Craftmanship written by Robert C. Martin. Many of these areas are discussed (in Swedish) in the [reflektion.md](./reflektion.md), and some can also be seen by looking at line comments with discussions about improvements. Especially the class SuperStringFixer is still a total mess. There were simply not enough time to fix more of the imperfections.
 
 However, some imperfections have been fixed, like:
 * Writing a more explanatory and explicit README
