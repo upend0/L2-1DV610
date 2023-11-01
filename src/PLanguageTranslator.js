@@ -5,23 +5,22 @@
  * @version 1.0.0
  */
 
-// * 52 lines of code
-// * 5 if/for/while
-// * 2 public methods
-
 import { SuperStringFixer } from './SuperStringFixer.js'
+import { Utilities } from './Utilities.js'
 
 /**
  * Represents a translator that translates a string to PLanguage.
  */
 export class PLanguageTranslator {
   #superStringFixer
+  #utilities
 
   /**
    * Creates an instance of PLanguageTranslator.
    */
   constructor () {
     this.#superStringFixer = new SuperStringFixer()
+    this.#utilities = new Utilities()
   }
 
   /**
@@ -80,7 +79,7 @@ export class PLanguageTranslator {
     for (let i = 0; i < word.length; i++) {
       // & Maybe more clear to use another for loop, so the naming can be 'letter' instead of 'word[i]'
       // Check if the letter is a vowel
-      if (this.#isVowel(word[i])) {
+      if (this.#utilities.isVowel(word[i])) {
         // Add the vowel, and a p, and the vowel again to the translated word
         translatedWord += word[i] + 'p' + word[i]
       } else {
@@ -106,7 +105,7 @@ export class PLanguageTranslator {
     // Loop through the letters in the word
     for (let i = 0; i < word.length; i++) {
       // Check if the letter is a consonant
-      if (!this.#isVowel(word[i])) {
+      if (!this.#utilities.isVowel(word[i])) {
         // Add the consonant to the translated word
         translatedWord += word[i]
       } else {
@@ -124,16 +123,5 @@ export class PLanguageTranslator {
       }
     }
     return translatedWord
-  }
-
-  /**
-   * Method to check if a character is a vowel.
-   *
-   * @param {string} char - The character to check.
-   * @returns {boolean} True if the character is a vowel, otherwise false.
-   */
-  #isVowel (char) {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'å', 'ä', 'ö', 'é', 'ü', 'á', 'à', 'è', 'ì', 'ò', 'ú']
-    return vowels.includes(char.toLowerCase())
   }
 }

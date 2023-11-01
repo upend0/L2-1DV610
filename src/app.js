@@ -1,23 +1,11 @@
-import { AllLanguageTranslator } from './AllLanguageTranslator.js'
+import { TheAllLanguageTranslator } from './TheAllLanguageTranslator.js'
+import { FigLanguageTranslator } from './FigLanguageTranslator.js'
+import { ILanguageTranslator } from './ILanguageTranslator.js'
+import { PLanguageTranslator } from './PLanguageTranslator.js'
+import { RobberLanguageTranslator } from './RobberLanguageTranslator.js'
 
-try {
-  // Read the input from the user
-  // The first input is a number for a menu choice, where 1 is to translate to All Language and 2 is to translate from All Language.
-  // The second input is the string to translate.
-  const menuChoice = Number(process.argv[2])
-  const stringToTranslate = process.argv.slice(3).join(' ')
-
-  console.log(menuChoice)
-  console.log(stringToTranslate)
-
-  // Create a new allLanguageTranslator object
-  const allLanguageTranslator = new AllLanguageTranslator()
-
-  // Translate the string
-  const translatedString = allLanguageTranslator.translateToAllLanguage(stringToTranslate)
-
-  // Print the translated string
-  console.log(translatedString)
-} catch (error) {
-  console.error(error)
-}
+export const theAllLanguageTranslator = new TheAllLanguageTranslator()
+export const figLanguageTranslator = new FigLanguageTranslator()
+export const iLanguageTranslator = new ILanguageTranslator()
+export const pLanguageTranslator = new PLanguageTranslator()
+export const robberLanguageTranslator = new RobberLanguageTranslator()

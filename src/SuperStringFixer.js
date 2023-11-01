@@ -5,14 +5,11 @@
  * @version 1.0.0
  */
 
-// * 26 lines of code
-// * 3 if/for/while
-// * 1 public method
-
 /**
  * Represents a SuperStringFixer that fixes a string.
  */
 export class SuperStringFixer {
+  static maxStringLength = 10000
   /**
    * Public method to check and fix the string.
    *
@@ -22,17 +19,16 @@ export class SuperStringFixer {
   // & Maybe I should change the name of the method
   // & Maybe change the name of the argument
   checkFixString (stringToTranslate) {
+    // Check if the string is empty
+    this.#checkEmptyString(stringToTranslate)
+
     // Check the length of the string
-    const maxStringLength = 10000
     // & Could I have this magic constant in something else?
-    this.#checkStringLength(stringToTranslate, maxStringLength)
+    this.#checkStringLength(stringToTranslate)
 
     // Trim the string and make it lowercase
     stringToTranslate = stringToTranslate.trim().toLowerCase()
     // & This does two things, maybe I should split it up into two methods
-
-    // Check if the string is empty
-    this.#checkEmptyString(stringToTranslate)
 
     // Check if the string is valid
     this.#checkValidString(stringToTranslate)
@@ -49,11 +45,10 @@ export class SuperStringFixer {
    * Private method to check the length of the string.
    *
    * @param {string} stringToTranslate - The string to translate.
-   * @param {number} maxStringLength - The maximum allowed length of the string.
    */
-  #checkStringLength (stringToTranslate, maxStringLength) {
-    if (stringToTranslate.length > maxStringLength) {
-      throw new Error(`The string exceeds the maximum allowed length of ${maxStringLength} characters.`)
+  #checkStringLength (stringToTranslate) {
+    if (stringToTranslate.length > SuperStringFixer.maxStringLength) {
+      throw new Error(`The string exceeds the maximum allowed length of ${SuperStringFixer.maxStringLength} characters.`)
     }
   }
 
@@ -63,7 +58,7 @@ export class SuperStringFixer {
    * @param {string} stringToTranslate - The string to translate.
    */
   #checkEmptyString (stringToTranslate) {
-    if (stringToTranslate === '') {
+    if (stringToTranslate === '' || stringToTranslate === null || stringToTranslate === undefined) {
       throw new Error('The string is empty.')
     }
   }
